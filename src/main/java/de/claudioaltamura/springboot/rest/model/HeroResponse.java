@@ -1,6 +1,5 @@
 package de.claudioaltamura.springboot.rest.model;
 
-import de.claudioaltamura.springboot.rest.service.HeroService;
 import lombok.Value;
 
 @Value(staticConstructor="of")
