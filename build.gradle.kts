@@ -1,4 +1,3 @@
-import io.franzbecker.gradle.lombok.task.DelombokTask
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
@@ -54,20 +53,6 @@ spotless {
     }
     kotlinGradle {
         ktlint()
-    }
-}
-
-val delombok by registering(DelombokTask::class)
-delombok {
-    dependsOn(compileJava)
-    val outputDir by extra { file("$buildDir/delombok") }
-    outputs.dir(outputDir)
-    sourceSets.getByName("main").java.srcDirs.forEach {
-        inputs.dir(it)
-        args(it, "-d", outputDir)
-    }
-    doFirst {
-        outputDir.delete()
     }
 }
 
