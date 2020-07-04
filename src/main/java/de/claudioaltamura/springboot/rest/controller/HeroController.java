@@ -23,12 +23,12 @@ public class HeroController {
   private final HeroService heroService;
 
   @GetMapping("/api/v1/heroes")
-  public ResponseEntity<Collection<HeroResponse>> findAll() {
+  ResponseEntity<Collection<HeroResponse>> findAll() {
     return ResponseEntity.ok(heroService.findAll());
   }
 
   @PostMapping("/api/v1/heroes")
-  public ResponseEntity<HeroResponse> add(@RequestBody @Valid HeroRequest heroRequest) {
+  ResponseEntity<HeroResponse> add(@RequestBody @Valid HeroRequest heroRequest) {
     HeroResponse hero = heroService.add(heroRequest);
 
     if (hero == null)
