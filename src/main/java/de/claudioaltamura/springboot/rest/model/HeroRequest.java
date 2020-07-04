@@ -5,16 +5,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.ToString;
 
+import javax.validation.constraints.*;
+
 @Getter
 @ToString
 public class HeroRequest {
 
+  @NotBlank
   private final String name;
 
+  @DecimalMin(value = "0.0")
+  @DecimalMax(value = "100.0")
   private final double power;
 
+  @NotBlank
   private final String realName;
 
+  @NotBlank
   private final String city;
 
   @JsonCreator
