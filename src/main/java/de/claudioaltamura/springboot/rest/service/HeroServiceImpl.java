@@ -1,8 +1,8 @@
 package de.claudioaltamura.springboot.rest.service;
 
-import static de.claudioaltamura.springboot.rest.model.HeroMapper.*;
+import static de.claudioaltamura.springboot.rest.service.HeroMapper.*;
 
-import de.claudioaltamura.springboot.rest.exception.HeroNotFoundException;
+import de.claudioaltamura.springboot.rest.model.HeroNotFoundException;
 import de.claudioaltamura.springboot.rest.model.Hero;
 import de.claudioaltamura.springboot.rest.model.HeroRequest;
 import de.claudioaltamura.springboot.rest.model.HeroRequestWithId;

@@ -1,4 +1,4 @@
-package de.claudioaltamura.springboot.rest.controller;
+package de.claudioaltamura.springboot.rest.web;
 
 import de.claudioaltamura.springboot.rest.model.HeroRequest;
 import de.claudioaltamura.springboot.rest.model.HeroResponse;
