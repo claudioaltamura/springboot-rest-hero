@@ -1,18 +1,25 @@
 package de.claudioaltamura.springboot.rest.model;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Setter
+@Getter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(onlyExplicitlyIncluded = true)
 public class Hero {
 
+  @EqualsAndHashCode.Include
+  @ToString.Include
   private final long id;
 
-  private final String name;
+  private String name;
 
-  private final double power;
+  private double power;
 
-  private final String realName;
+  private String realName;
 
-  private final String city;
+  private String city;
 
 }
