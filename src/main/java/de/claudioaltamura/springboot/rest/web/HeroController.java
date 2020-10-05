@@ -6,13 +6,12 @@ import de.claudioaltamura.springboot.rest.service.HeroService;
 import java.net.URI;
 import java.util.Collection;
 import javax.validation.Valid;
+
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
@@ -22,13 +21,18 @@ public class HeroController {
 
   private final HeroService heroService;
 
-  @GetMapping("/api/v1/heroes")
-  ResponseEntity<Collection<HeroResponse>> findAll() {
+  @GetMapping(value = "/api/v1/heroes", produces = "application/json")
+  public ResponseEntity<Collection<HeroResponse>> findAll() {
     return ResponseEntity.ok(heroService.findAll());
   }
 
-  @PostMapping("/api/v1/heroes")
-  ResponseEntity<HeroResponse> add(@RequestBody @Valid HeroRequest heroRequest) {
+  @GetMapping(value = "/api/v1/heroes/{id}", produces = "application/json")
+  public ResponseEntity<HeroResponse> find(@PathVariable long heroId) {
+    return ResponseEntity.ok(heroService.find(heroId));
+  }
+
+  @PostMapping(value= "/api/v1/heroes", consumes = "application/json", produces = "application/json")
+  public ResponseEntity<HeroResponse> add(@RequestBody @Valid HeroRequest heroRequest) {
     HeroResponse hero = heroService.add(heroRequest);
 
     if (hero == null)
