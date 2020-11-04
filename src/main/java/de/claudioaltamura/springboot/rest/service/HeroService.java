@@ -1,6 +1,5 @@
 package de.claudioaltamura.springboot.rest.service;
 
-import de.claudioaltamura.springboot.rest.model.Hero;
 import de.claudioaltamura.springboot.rest.model.HeroRequest;
 import de.claudioaltamura.springboot.rest.model.HeroRequestWithId;
 import de.claudioaltamura.springboot.rest.model.HeroResponse;
@@ -12,7 +11,7 @@ public interface HeroService {
 
   void update(HeroRequestWithId heroRequestWithId);
 
-  HeroResponse find(long heroId);
+  HeroResponse findById(long heroId);
 
   Collection<HeroResponse> findAll();
 

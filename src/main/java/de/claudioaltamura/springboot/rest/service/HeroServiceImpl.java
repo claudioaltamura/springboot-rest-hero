@@ -2,7 +2,7 @@ package de.claudioaltamura.springboot.rest.service;
 
 import static de.claudioaltamura.springboot.rest.service.HeroMapper.*;
 
-import de.claudioaltamura.springboot.rest.model.HeroNotFoundException;
+import de.claudioaltamura.springboot.rest.exception.HeroNotFoundException;
 import de.claudioaltamura.springboot.rest.model.Hero;
 import de.claudioaltamura.springboot.rest.model.HeroRequest;
 import de.claudioaltamura.springboot.rest.model.HeroRequestWithId;
@@ -33,11 +33,11 @@ public class HeroServiceImpl implements HeroService {
     long heroId = heroRequestWithId.getId();
     Hero hero = heroes.get(heroId);
 
-    heroes.put(heroRequestWithId.getId(), map2Hero(heroId, heroRequestWithId));
+    heroes.put(heroRequestWithId.getId(), map2Hero(heroRequestWithId));
   }
 
   @Override
-  public HeroResponse find(long heroId) {
+  public HeroResponse findById(long heroId) {
     Hero hero = heroes.get(heroId);
 
     if(hero != null) {

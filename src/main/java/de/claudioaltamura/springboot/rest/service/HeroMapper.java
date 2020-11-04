@@ -25,8 +25,8 @@ class HeroMapper {
     return new Hero(id, heroRequest.getName(), heroRequest.getPower(), heroRequest.getRealName(), heroRequest.getCity());
   }
 
-  static Hero map2Hero(long id, HeroRequestWithId heroRequest) {
-    return new Hero(id, heroRequest.getName(), heroRequest.getPower(), heroRequest.getRealName(), heroRequest.getCity());
+  static Hero map2Hero(HeroRequestWithId heroRequest) {
+    return new Hero(heroRequest.getId(), heroRequest.getName(), heroRequest.getPower(), heroRequest.getRealName(), heroRequest.getCity());
   }
 
 }

@@ -7,7 +7,6 @@ import java.net.URI;
 import java.util.Collection;
 import javax.validation.Valid;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +27,7 @@ public class HeroController {
 
   @GetMapping(value = "/api/v1/heroes/{id}", produces = "application/json")
   public ResponseEntity<HeroResponse> find(@PathVariable long heroId) {
-    return ResponseEntity.ok(heroService.find(heroId));
+    return ResponseEntity.ok(heroService.findById(heroId));
   }
 
   @PostMapping(value= "/api/v1/heroes", consumes = "application/json", produces = "application/json")
