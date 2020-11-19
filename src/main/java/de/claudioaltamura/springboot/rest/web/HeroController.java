@@ -43,4 +43,11 @@ public class HeroController {
     return ResponseEntity.created(location).body(hero);
   }
 
+  @DeleteMapping(value="/api/v1/heroes/{heroId}")
+  public ResponseEntity delete(@PathVariable long heroId) {
+    heroService.destroy(heroId);
+
+    return ResponseEntity.noContent().build();
+  }
+
 }

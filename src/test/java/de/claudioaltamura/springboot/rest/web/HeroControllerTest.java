@@ -11,7 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -37,5 +39,17 @@ class HeroControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(heroRequest))
                 .andExpect(status().isCreated());
+    }
+
+    @Test
+    void whenExistingHeroIdExceptDeleteSuccess() throws Exception {
+        String heroRequest = "{\"name\":\"Batman\",\"power\":90.0,\"realName\":\"Bruce Wayne\",\"city\":\"Gotham City\"}";
+
+        doNothing().when(service).destroy(anyLong());
+
+        mockMvc.perform(delete("/api/v1/heroes/{heroesId}", 1))
+                .andExpect(status().isNoContent());
+
+        verify(service).destroy(anyLong());
     }
 }

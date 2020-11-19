@@ -9,6 +9,7 @@ import de.claudioaltamura.springboot.rest.model.HeroRequestWithId;
 import de.claudioaltamura.springboot.rest.model.HeroResponse;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,8 @@ public class HeroServiceImpl implements HeroService {
     long heroId = heroRequestWithId.getId();
     Hero hero = heroes.get(heroId);
 
+    //TODO inf not found
+
     heroes.put(heroRequestWithId.getId(), map2Hero(heroRequestWithId));
   }
 
@@ -54,11 +57,17 @@ public class HeroServiceImpl implements HeroService {
 
   @Override
   public void destroy(long heroId) {
-    Hero hero = heroes.get(heroId);
+    Optional<Hero> hero = Optional.ofNullable(heroes.get(heroId));
 
-    if(hero != null) {
-      heroes.remove(heroId);
-    }
+    hero.map(h -> heroes.remove(h.getId())).orElseThrow(HeroNotFoundException::new);
+
+//    Hero hero = heroes.get(heroId);
+//    if(hero != null) {
+//      heroes.remove(heroId);
+//    } else {
+//      throw new HeroNotFoundException();
+//    }
+
   }
 
   @Override
