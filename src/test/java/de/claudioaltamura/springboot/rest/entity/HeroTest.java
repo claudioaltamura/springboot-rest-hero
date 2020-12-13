@@ -1,4 +1,4 @@
-package de.claudioaltamura.springboot.rest.model;
+package de.claudioaltamura.springboot.rest.entity;
 
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +35,5 @@ class HeroTest {
     void set() {
         Hero hero = new Hero(1);
         //hero.setId(); not available
-
     }
 }

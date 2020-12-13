@@ -1,8 +1,10 @@
 package de.claudioaltamura.springboot.rest.service;
 
-import de.claudioaltamura.springboot.rest.model.HeroRequest;
-import de.claudioaltamura.springboot.rest.model.HeroRequestWithId;
-import de.claudioaltamura.springboot.rest.model.HeroResponse;
+import de.claudioaltamura.springboot.rest.dto.HeroRequest;
+import de.claudioaltamura.springboot.rest.dto.HeroRequestWithId;
+import de.claudioaltamura.springboot.rest.dto.HeroResponse;
+
+import javax.validation.Valid;
 import java.util.Collection;
 
 public interface HeroService {

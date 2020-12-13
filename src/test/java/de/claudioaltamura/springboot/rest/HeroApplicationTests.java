@@ -2,16 +2,13 @@ package de.claudioaltamura.springboot.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import de.claudioaltamura.springboot.rest.model.HeroResponse;
+import de.claudioaltamura.springboot.rest.dto.HeroResponse;
 import de.claudioaltamura.springboot.rest.web.HeroController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.ResponseEntity;
-
-import java.util.Collections;
 
 /**
  * API Test. Starts everything.
@@ -34,9 +31,9 @@ class HeroApplicationTests {
 	}
 
 	@Test
-	public void shouldReturnSomething() {
+	void shouldReturnSomething() {
 		HeroResponse[] heroes = restTemplate.getForObject("http://localhost:" + port + "/api/v1/heroes",
 				HeroResponse[].class);
-		assertThat(heroes).isNotEmpty();
+		assertThat(heroes).isNotNull();
 	}
 }

@@ -1,4 +1,4 @@
-package de.claudioaltamura.springboot.rest.model;
+package de.claudioaltamura.springboot.rest.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

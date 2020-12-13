@@ -1,7 +1,7 @@
 package de.claudioaltamura.springboot.rest.web;
 
-import de.claudioaltamura.springboot.rest.model.HeroRequest;
-import de.claudioaltamura.springboot.rest.model.HeroResponse;
+import de.claudioaltamura.springboot.rest.dto.HeroRequest;
+import de.claudioaltamura.springboot.rest.dto.HeroResponse;
 import de.claudioaltamura.springboot.rest.service.HeroService;
 import java.net.URI;
 import java.util.Collection;
@@ -44,7 +44,7 @@ public class HeroController {
   }
 
   @DeleteMapping(value="/api/v1/heroes/{heroId}")
-  public ResponseEntity delete(@PathVariable long heroId) {
+  public ResponseEntity<Void> delete(@PathVariable long heroId) {
     heroService.destroy(heroId);
 
     return ResponseEntity.noContent().build();

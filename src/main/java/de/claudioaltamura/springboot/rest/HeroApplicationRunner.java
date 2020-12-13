@@ -5,14 +5,15 @@ import de.claudioaltamura.springboot.rest.service.HeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class HeroApplication {
+public class HeroApplicationRunner implements ApplicationRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HeroApplication.class, args);
+	@Autowired
+	private HeroService heroService;
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		heroService.add(new HeroRequest("Batman",
+				90.0d, "Bruce Wayne", "Gotham City"));
 	}
-
 }

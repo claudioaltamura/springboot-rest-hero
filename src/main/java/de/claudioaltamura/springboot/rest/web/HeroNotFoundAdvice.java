@@ -1,6 +1,6 @@
 package de.claudioaltamura.springboot.rest.web;
 
-import de.claudioaltamura.springboot.rest.exception.HeroNotFoundException;
+import de.claudioaltamura.springboot.rest.service.HeroNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

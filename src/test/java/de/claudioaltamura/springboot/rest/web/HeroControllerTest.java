@@ -1,7 +1,7 @@
 package de.claudioaltamura.springboot.rest.web;
 
-import de.claudioaltamura.springboot.rest.model.HeroRequest;
-import de.claudioaltamura.springboot.rest.model.HeroResponse;
+import de.claudioaltamura.springboot.rest.dto.HeroRequest;
+import de.claudioaltamura.springboot.rest.dto.HeroResponse;
 import de.claudioaltamura.springboot.rest.service.HeroService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

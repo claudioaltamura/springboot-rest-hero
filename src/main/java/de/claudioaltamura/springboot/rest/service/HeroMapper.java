@@ -1,9 +1,9 @@
 package de.claudioaltamura.springboot.rest.service;
 
-import de.claudioaltamura.springboot.rest.model.Hero;
-import de.claudioaltamura.springboot.rest.model.HeroRequest;
-import de.claudioaltamura.springboot.rest.model.HeroRequestWithId;
-import de.claudioaltamura.springboot.rest.model.HeroResponse;
+import de.claudioaltamura.springboot.rest.entity.Hero;
+import de.claudioaltamura.springboot.rest.dto.HeroRequest;
+import de.claudioaltamura.springboot.rest.dto.HeroRequestWithId;
+import de.claudioaltamura.springboot.rest.dto.HeroResponse;
 
 import java.util.Collection;
 import java.util.List;
