@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.2.7.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+    id 'com.diffplug.gradle.spotless' version "3.27.1"
+    id 'com.github.ben-manes.versions' version "0.27.0"
 }
 
 group = 'de.claudioaltamura'
